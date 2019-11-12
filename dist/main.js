@@ -2,9 +2,7 @@ const appmanager = new AppManager
 const renderer = new Renderer
 
 const loadPage = async () => {
-    // renderer.renderData(appmanager.getReviews())
-    map.initialize()
-    map.showReports()
+  
 }
 
 $(".search-reviews").on('click', async () => {
@@ -12,16 +10,19 @@ $(".search-reviews").on('click', async () => {
     renderer.renderData(appmanager.reviews)
 })
 
-$(".submit").on("click", () => {
+$(".submit").on("click", async () => {
     let newReview = {
-        time: $('.time-input').val(),
-        location: $('.location-input').val(),
+        time: new Date(`${$('.date-input').val()} ${$('.time-input').val()}`),
+        location: newMarker.getPosition(),
+        // location:  [34.77407946097447,32.03525683410125],
         content: $('.content-input').val(),
         people: $(".people-input").val(),
         dirty: $(".dirty-input").val(),
         lighting: $('.lighting-input').val()
     }
-    $.post('/reviews', newReview)
+    console.log("new review" + newReview.location)
+    await appmanager.saveReview(newReview)
+    console.log("finished saving")
 })
 
 const searchOnMap = async () => {

@@ -9,22 +9,22 @@ class AppManager {
         this.streets = res
 
     }
-    async getBlocksFromTlvApi() {
-     
+        async getBlocksFromTlvApi() {
     }
+
     async getReviews() {
         const review = await $.get('/reviews')
         this.reviews = review
-       
     }
+
     async saveReview(review) {
-    await $.post('/reviews',review)
-    
-    }
+        console.log("got to appManager")
+        await $.post('/review', review, () => {})
+        console.log("posted review")
+}
     
     async _removeReview(review) {
-    await $.delete('/reviews',review)
-
+        await $.delete('/reviews',review)
     }
 }
 
