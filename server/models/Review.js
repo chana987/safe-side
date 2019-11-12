@@ -3,10 +3,11 @@ const Schema = mongoose.Schema
 
 const reviewSchema = new Schema({
     time: Date,
-    location: [Number],
+    lat: Number,
+    lng: Number,
     content: String,
     people: Number,
-    dirty: Number,
+    cleanliness: Number,
     lighting: Number
 })
 
