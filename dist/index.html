@@ -10,24 +10,36 @@
 </head>
 
 <body>
-<div id="map"></div>
+	<div id="map"></div>
 
-<input type="text" class="search-street-input" placeholder="Search-street"/>
-        <button class="search-street">Search</button>
+	<input type="text" class="search-street-input" placeholder="search-street"/>
+	<button class="search-street">Search</button>
 
+	<div class="reviews"></div>
 
-<div class="reviews"></div>
+	<form class="form">
+		<input type="text" class="time-input" placeholder="Enter time"/>
+		<input type="text" class="location-input" placeholder="Enter location"/>
+		<input type="text" class="content-input" placeholder="Enter content"/>
+		<input type="number" class="people-input" placeholder="Rate people"/>
+		<input type="number" class="dirty-input" placeholder="Rate how dirty"/>
+		<input type="number" class="lighting-input" placeholder="Rate how lighting"/>
+		<button class=".submit">Submit</button>
+	</form>
+	
+	<script id="review-template" type="text/x-handlebars-template">
+	{{#each data}}
+		<div class="review-container">
+		<div class="time">Time:{{time}}</div>
+		<div class="location">Location:{{location}}</div>
+		<div class="content">Content:{{content}}</div>
+		<div class="people">People rate:{{people}}</div>
+		<div class="dirty">Dirt rate:{{dirty}}</div>
+		<div class="lighting">Lighting:{{lighting}}</div>
+	</div>
+	{{/each}}
+	</script>
 
-
-<form class="form">
- <input type="text" class="time-input" placeholder="Enter time"/>
-  <input type="text" class="location-input" placeholder="Enter location"/>
-   <input type="text" class="content-input" placeholder="Enter content"/>
-	<input type="number" class="people-input" placeholder="Rate people"/>
-	 <input type="number" class="dirty-input" placeholder="Rate how dirty"/>
-	  <input type="number" class="lighting-input" placeholder="Rate how lighting"/>
-        <button class=".submit">Submit</button>
-</form>
 	<!-- <script class='cfg' src="config.js"></script> -->
 	<!-- <script type="text/javascript">
 		let apiKey = apiKeys.googleMapKey
@@ -36,21 +48,7 @@
 		jsElement.source = url
 		document.getElementById('cfg').appendChild(jsElement)
 	</script> -->
-	<script id="review-template" type="text/x-handlebars-template">
-	{{#each data}}
-<div class="review-container">
 
-	<div class="time">Time:{{time}}</div>
-	<div class="location">Location:{{location}}</div>
-	<div class="content">Content:{{content}}</div>
-	<div class="people">People rate:{{people}}</div>
-	<div class="dirty">Dirt rate:{{dirty}}</div>
-	<div class="lighting">Lighting:{{lighting}}</div>
-
-</div>
-	
-	{{/each}}
-	</script>
 	<script src="./jquery/dist/jquery.js"></script>
 	<script src="./handlebars/dist/handlebars.js"></script>
     <script src="AppManager.js"></script>
