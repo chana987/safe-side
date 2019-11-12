@@ -18,9 +18,7 @@ class AppManager {
     }
 
     async saveReview(review) {
-        console.log("got to appManager")
         await $.post('/review', review, () => {})
-        console.log("posted review")
 }
     
     async _removeReview(review) {

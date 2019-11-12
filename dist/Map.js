@@ -39,7 +39,22 @@ function initialize() {
 		map: map
 	})
 
-
+	function placeMarker(location) {
+		if (newMarker == null) {
+			newMarker = new google.maps.Marker({
+				position: location,
+				map: map
+			})
+		} else {
+			newMarker.setPosition(location)
+		}
+		newMarker.setLabel('newMarker')
+		return newMarker
+	}
+	
+	map.addListener("click", function(e) {
+		placeMarker(e.latLng, map)
+	})
 }
 google.maps.event.addDomListener(window, "load", initialize)
 

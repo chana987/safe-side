@@ -28,7 +28,7 @@ router.get('/reviews', function (req, res) {
 })
 
 router.post('/review', async function(req, res) {
-    let newReview = new Review({ ...req.body, time: new Date() })
+    let newReview = new Review({ ...req.body, time: new Date(req.body.time) })
     await newReview.save()
     res.end()
 })

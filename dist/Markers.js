@@ -28,8 +28,8 @@ class Markers {
     async makeReviewMarkers() {
         let response = await $.get('/reviews')
         for (let review of response) {
-            let lng = review.location[0]
-            let lat = review.location[1]
+            let lng = review.lng
+            let lat = review.lat
             this.makeMarker(lng, lat, this.reviewMarkers)
         }
     }    
