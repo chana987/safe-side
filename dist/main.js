@@ -20,16 +20,16 @@ $(".submit").on("click", () => {
     let newReview = {
         time: ('.time-input').val(),
         location: ('.location-input').val(),
-        content: ('.content').val(),
-        people: (".people").val(),
-        dirty: (".dirty").val(),
-        lighting: ('.lighting').val()
+        content: ('.content-input').val(),
+        people: (".people-input").val(),
+        dirty: (".dirty-input").val(),
+        lighting: ('.lighting-input').val()
     }
     $.post('/reviews', newReview)
 })
 
 const searchOnMap = async () => {
-    let input = ('.serch-input').val()
+    let input = ('.serch-street-input').val()
     await map.searchMap(input)
 
 }
