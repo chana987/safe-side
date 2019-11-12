@@ -1,4 +1,4 @@
-const appmanager = new AppManger
+const appmanager = new AppManager
 const renderer = new Renderer
 const map = new Map
 
