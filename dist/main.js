@@ -1,9 +1,8 @@
 const appmanager = new AppManager
 const renderer = new Renderer
-const map = new Map
 
 const loadPage = async () => {
-    renderer.renderData(appmanager.getReviews())
+    // renderer.renderData(appmanager.getReviews())
     map.initialize()
     map.showReports()
 }
