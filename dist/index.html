@@ -10,7 +10,7 @@
 </head>
 
 <body>
-<div id="map-canvas"></div>
+<div id="map"></div>
 
 <input type="text" class="search-street-input" placeholder="Search-street"/>
         <button class="search-street">Search</button>
@@ -51,12 +51,14 @@
 	
 	{{/each}}
 	</script>
-	<script type="text/javascript"
-	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB3rrnbigPCfRCvdPE7wdiEx-1ahST9_wk&callback=initMap"></script>
 	<script src="./jquery/dist/jquery.js"></script>
 	<script src="./handlebars/dist/handlebars.js"></script>
     <script src="AppManager.js"></script>
-    <script src="Renderer.js"></script>
+	<script src="Renderer.js"></script>
+	<script type="text/javascript"
+	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAJ7jv3-mwVdIaJDWZLVqprjVczkzTzxtI&callback=initMap"></script>
+	<script src="Markers.js"></script>
+	<script src="Map.js"></script>
 	<script src="main.js"></script>
 		
 </body>
