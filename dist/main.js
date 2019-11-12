@@ -12,7 +12,7 @@ $(".search-reviews").on('click', async () => {
 
 $(".submit").on("click", async () => {
     let newReview = {
-        time: new Date(),
+        time: new Date(`${$('.date-input').val()} ${$('.time-input').val()}`),
         location: newMarker.getPosition(),
         // location:  [34.77407946097447,32.03525683410125],
         content: $('.content-input').val(),
