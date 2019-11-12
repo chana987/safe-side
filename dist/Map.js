@@ -16,3 +16,17 @@ function initialize() {
 }
 
 google.maps.event.addDomListener(window, 'load', initialize)
+
+
+function showReviews() {
+
+}
+
+function mapOptions() {
+
+}
+
+function getLayers() {
+
+}
+
