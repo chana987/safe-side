@@ -17,15 +17,15 @@
 
 	<div class="reviews"></div>
 
-	<form class="form">
-		<input type="text" class="time-input" placeholder="Enter time"/>
+	<div class="form">
+		<input type="date" class="time-input" placeholder="Enter time"/>
 		<input type="text" class="location-input" placeholder="Enter location"/>
 		<input type="text" class="content-input" placeholder="Enter content"/>
 		<input type="number" class="people-input" placeholder="Rate people"/>
 		<input type="number" class="dirty-input" placeholder="Rate how dirty"/>
 		<input type="number" class="lighting-input" placeholder="Rate how lighting"/>
-		<button class=".submit">Submit</button>
-	</form>
+		<button class="submit">Submit</button>
+	</div>
 	
 	<script id="review-template" type="text/x-handlebars-template">
 	{{#each data}}
