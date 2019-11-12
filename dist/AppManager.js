@@ -1,4 +1,4 @@
-class AppManger {
+class AppManager {
     constructor() {
         this.reviews = [1,2,3]
         this.streets = []
