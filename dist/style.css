@@ -1,0 +1,13 @@
+html {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    -webkit-font-smoothing: antialiased;
+}
+
+html #map-canvas {
+    width: 50vw;
+    height: 500px;
+    margin-bottom: 15px;
+    border: 2px solid #fff;
+}
