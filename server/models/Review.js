@@ -3,7 +3,7 @@ const Schema = mongoose.Schema
 
 const reviewSchema = new Schema({
     time: Date,
-    location: String,
+    location: [Number],
     content: String,
     people: Number,
     dirty: Number,

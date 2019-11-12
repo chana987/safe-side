@@ -4,24 +4,33 @@ class Markers {
         this.reviewMarkers = []
     }
     
-    makeMarker(lng, lat){
+    async makeMarker(lng, lat, arr){
         let marker = new google.maps.Marker({
             map: map,
-            draggable: true,
             position: {lat: lat, lng: lng}
         })
-        markers.push(marker)
+        arr.push(marker)
+    }
+
+    async makeStreetMarkers() {
+        let response = await $.get('/streets')
+        for (let street of response) {
+            for (let a of street.path) {
+                for (let b of a) {
+                    let lng = b[0]
+                    let lat = b[1]
+                    this.makeMarker(lng, lat, this.streetMarkers)
+                }
+            }
+        }
     }
     
     async makeReviewMarkers() {
-        await $.get('/reviews', err, response)
-        console.log(response)
-    }
-    
-    async makeStreetMarkers() {
-        await $.get('/streets', err, response)
-        console.log(response)
-    }
-    
-    
+        let response = await $.get('/reviews')
+        for (let review of response) {
+            let lng = review.location[0]
+            let lat = review.location[1]
+            this.makeMarker(lng, lat, this.reviewMarkers)
+        }
+    }    
 }
