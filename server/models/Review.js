@@ -8,7 +8,8 @@ const reviewSchema = new Schema({
     content: String,
     people: Number,
     cleanliness: Number,
-    lighting: Number
+    lighting: Number,
+    streets: [ { nameHebrew: String, nameEnglish: String } ]
 })
 
 const Review = mongoose.model("review", reviewSchema)

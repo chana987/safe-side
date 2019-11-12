@@ -1,7 +1,6 @@
 const express = require('express')
 const router = express.Router()
 const requestPromise = require('request-promise')
-
 const Review = require('../models/Review')
 
 router.get('/streets', function (req, res) {

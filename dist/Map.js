@@ -1,3 +1,5 @@
+const streetMarkers = []
+const reviewMarkers = []
 let newMarker
 
 function initialize() {
@@ -19,26 +21,6 @@ function initialize() {
 
 	var testReviews = { lat: 32.063032, lng: 34.774198 }
 
-	// var testReviews = [
-	//         {
-	//           position: new google.maps.LatLng(32.063032, 34.774198),
-	//         }, {
-	//           position: new google.maps.LatLng(32.060230, 34.769508),
-	//         }]
-
-	//       for (var i = 0; i < testReviews.length; i++) {
-	//         var marker = new google.maps.Marker({
-	//           position: testReviews[i].position,
-	//           icon: icons[features[i].type].icon,
-	//           map: map
-	//         })
-	//       }
-
-	var marker = new google.maps.Marker({
-		position: testReviews,
-		map: map
-	})
-
 	function placeMarker(location) {
 		if (newMarker == null) {
 			newMarker = new google.maps.Marker({
@@ -55,20 +37,38 @@ function initialize() {
 	map.addListener("click", function(e) {
 		placeMarker(e.latLng, map)
 	})
+		
+	async function makeMarker(lng, lat, arr){
+		let marker = new google.maps.Marker({
+			map: map,
+			position: {lat: lat, lng: lng}
+		})
+		arr.push(marker)
+	}
+
+	async function makeStreetMarkers() {
+		let response = await $.get('/streets')
+		for (let street of response) {
+			for (let a of street.path) {
+				for (let b of a) {
+					let lng = b[0]
+					let lat = b[1]
+					makeMarker(lng, lat, streetMarkers)
+				}
+			}
+		}
+	}
+	
+	async function makeReviewMarkers() {
+		let response = await $.get('/reviews')
+		for (let review of response) {
+			let lng = review.lng
+			let lat = review.lat
+			makeMarker(lng, lat, reviewMarkers)
+		}
+	}    
+
+	makeReviewMarkers()
 }
 google.maps.event.addDomListener(window, "load", initialize)
 
-// showReviews() {
-
-// }
-
-// mapOptions() {
-
-// }
-// getLayers() {
-
-// }
-
-function getReviewLocation() {
-	
-}
