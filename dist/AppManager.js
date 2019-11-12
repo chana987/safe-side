@@ -1,0 +1,6 @@
+class AppManger{
+    constructor(){
+        this.
+
+    }
+}
