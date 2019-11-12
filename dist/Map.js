@@ -33,6 +33,11 @@ function initialize() {
 		newMarker.setLabel('newMarker')
 		return newMarker
 	}
+
+	$(".submit-review").on("click", () => {
+		newMarker.setMap(null)
+		newMarker = null
+	})
 	
 	map.addListener("click", function(e) {
 		placeMarker(e.latLng, map)
