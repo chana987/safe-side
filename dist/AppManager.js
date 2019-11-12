@@ -12,7 +12,7 @@ class AppManager {
     async getBlocksFromTlvApi() {
      
     }
-    async getReviews(review) {
+    async getReviews() {
         const review = await $.get('/reviews')
         this.reviews = review
        
