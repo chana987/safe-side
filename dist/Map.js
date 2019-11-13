@@ -3,10 +3,12 @@ const blocks = []
 const streets = []
 let newMarker
 let geocoder
+let mapOptions
+let map
 
 function initialize() {
     geocoder = new google.maps.Geocoder();
-    var mapOptions = {
+    mapOptions = {
         center: new google.maps.LatLng(32.060033, 34.769145),
         zoom: 14,
         mapTypeId: google.maps.MapTypeId.HYBRID,
@@ -20,15 +22,15 @@ function initialize() {
         overviewMapControl: true,
         rotateControl: false
     }
-	var map = new google.maps.Map(document.getElementById("map"), mapOptions)
-	
-	// map.data.loadGeoJson('https://storage.cloud.google.com/tlv_son/streets.json')
-	
-		var input = document.getElementById('search-street-input')
- 	map.controls[google.maps.ControlPosition.TOP_LEFT].push(input)
+    map = new google.maps.Map(document.getElementById("map"), mapOptions)
 
-	var btn = document.getElementById('map-btn')
- 	map.controls[google.maps.ControlPosition.TOP_LEFT].push(btn)
+    // map.data.loadGeoJson('https://storage.cloud.google.com/tlv_son/streets.json')
+
+    var input = document.getElementById('search-street-input')
+    map.controls[google.maps.ControlPosition.TOP_LEFT].push(input)
+
+    var btn = document.getElementById('map-btn')
+    map.controls[google.maps.ControlPosition.TOP_LEFT].push(btn)
 
     function placeMarker(location) {
         if (newMarker == null) {
@@ -86,6 +88,20 @@ function initialize() {
     }
     makeReviewMarkers()
 
+    // const oriHandler = () => {
+
+    //     mapOptions.zoom = 16
+        
+    //     map = new google.maps.Map(document.getElementById("map"), mapOptions)
+        
+    //     var input = document.getElementById('search-street-input')
+    //     map.controls[google.maps.ControlPosition.TOP_LEFT].push(input)
+        
+    //     var btn = document.getElementById('map-btn')
+    //     map.controls[google.maps.ControlPosition.TOP_LEFT].push(btn)
+    //     makeReviewMarkers()
+    // }
+
     function codeAddress(address) {
         geocoder.geocode({ address: address }, function (results, status) {
             if (status == 'OK') {
@@ -94,6 +110,7 @@ function initialize() {
                     map: map,
                     position: results[0].geometry.location
                 })
+                oriHandler()
             } else {
                 alert('Geocode was not successful for the following reason: ' + status);
             }
@@ -103,8 +120,8 @@ function initialize() {
     $('.search-street').on('click', () => {
         let address = document.getElementById('search-street-input').value
         codeAddress(address)
-	})
+    })
 
-} 
+}
 
 google.maps.event.addDomListener(window, "load", initialize)
