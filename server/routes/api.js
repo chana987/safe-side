@@ -6,17 +6,35 @@ const Review = require('../models/Review')
 router.get('/streets', function (req, res) {
     requestPromise('https://api.tel-aviv.gov.il/gis/Layer?layerCode=838', function(err, response) {
         let parsedData = JSON.parse(response.body)
-        let streetData = parsedData.features
-        let streets = []
+        let allData = parsedData.features
+        let streetData = allData.slice(1)
+        let streets = {
+            type: "FeatureCollection",
+            features: []
+        }
         for (let s of streetData) {
             let newStreet = {
-                nameEnglish: s.attributes.shem_angli,
-                nameHebrew: s.attributes.t_rechov,
-                path: s.geometry.paths
+                type: "Feature",
+                properties: {
+                    strokeColor: '#FF0000',
+                    strokeOpacity: 1.0,
+                    strokeWeight: 3,
+                },
+                geometry: {
+                    type: "Polygon",
+                    coordinates: []
+                } 
             }
-            streets.push(newStreet)
+            for (let array of s.geometry.paths) {
+                for (let coords of array) {
+                    let lat = coords[0]
+                    let lng = coords[1]
+                    newStreet.geometry.coordinates.push([lat, lng])
+                }
+            }
+            streets.features.push(newStreet)
         }
-        res.send(streets)
+        res.send(JSON.stringify(streets))
     })
 })
 
@@ -24,12 +42,29 @@ router.get('/blocks', function (req, res) {
     requestPromise('https://api.tel-aviv.gov.il/gis/Layer?layerCode=626', function(err, response) {
         let parsedData = JSON.parse(response.body)
         let blockData = parsedData.features
-        let blocks = []
+        let blocks = {
+            type: "FeatureCollection",
+            features: []
+        }
         for (let s of blockData) {
             let newBlock = {
-                path: s.geometry.rings[0]
+                type: "Feature",
+                properties: {
+                    strokeColor: '#FF0000',
+                    strokeOpacity: 1.0,
+                    strokeWeight: 3,
+                },
+                geometry: {
+                    type: "Polygon",
+                    coordinates: []
+                } 
             }
-            blocks.push(newBlock)
+            for (let coords of s.geometry.rings[0]) {
+                let lat = coords[0]
+                let lng = coords[1]
+                newBlock.geometry.coordinates.push([lat, lng])
+            }
+            blocks.features.push(newBlock)
         }
         res.send(blocks)
     })
