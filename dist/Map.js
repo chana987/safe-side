@@ -1,9 +1,9 @@
-const streetMarkers = []
+// const streetMarkers = []
 const reviewMarkers = []
 let newMarker
 
 function initialize() {
-	var mapOptions = {
+	const mapOptions = {
 		center: new google.maps.LatLng(32.060033, 34.769145),
 		zoom: 14,
 		mapTypeId: google.maps.MapTypeId.HYBRID,
@@ -17,9 +17,9 @@ function initialize() {
 		overviewMapControl: true,
 		rotateControl: false
 	}
-	var map = new google.maps.Map(document.getElementById("map"), mapOptions)
+	const map = new google.maps.Map(document.getElementById("map"), mapOptions)
 
-	var testReviews = { lat: 32.063032, lng: 34.774198 }
+	const testReviews = { lat: 32.063032, lng: 34.774198 }
 
 	function placeMarker(location) {
 		if (newMarker == null) {
@@ -43,37 +43,54 @@ function initialize() {
 		placeMarker(e.latLng, map)
 	})
 		
-	async function makeMarker(lng, lat, arr){
+	const makeMarker = (time, people, cleanliness, lighting, content, lat, lng) => {
+		let contentString = `<div class="review-info-content"><div class="review-info-content"><p class="review-info-time">Time: ${time}</p><p class="review-info-people">Crowds: ${people}</p><p class="review-info-cleanliness">Cleanliness: ${cleanliness}</p><p class="review-info-lighting">Lighting: ${lighting}</p><p class="review-info-content">Content: ${content}</p></div></div>`
+
+		let infowindow = new google.maps.InfoWindow({
+			content: contentString
+		});
+
 		let marker = new google.maps.Marker({
 			map: map,
-			position: {lat: lat, lng: lng}
+			position: {lat: lat, lng: lng},
 		})
-		arr.push(marker)
+
+		marker.addListener('click', function() {
+			infowindow.open(map, marker);
+		});
+		
+		reviewMarkers.push(marker)
 	}
 
-	async function makeStreetMarkers() {
-		let response = await $.get('/streets')
-		for (let street of response) {
-			for (let a of street.path) {
-				for (let b of a) {
-					let lng = b[0]
-					let lat = b[1]
-					makeMarker(lng, lat, streetMarkers)
-				}
-			}
-		}
-	}
+	// async function makeStreetMarkers() {
+	// 	let response = await $.get('/streets')
+	// 	for (let street of response) {
+	// 		for (let a of street.path) {
+	// 			for (let b of a) {
+	// 				let lng = b[0]
+	// 				let lat = b[1]
+	// 				makeMarker(lng, lat, streetMarkers)
+	// 			}
+	// 		}
+	// 	}
+	// }
 	
 	async function makeReviewMarkers() {
-		let response = await $.get('/reviews')
-		for (let review of response) {
-			let lng = review.lng
+		let reviews = await $.get('/reviews')
+		for (let review of reviews) {
+			let time = review.time
+			let people = review.people
+			let cleanliness = review.cleanliness
+			let lighting = review.lighting
+			let content = review.content
 			let lat = review.lat
-			makeMarker(lng, lat, reviewMarkers)
+			let lng = review.lng
+			makeMarker(time, people, cleanliness, lighting, content, lat, lng)
 		}
 	}    
 
 	makeReviewMarkers()
 }
+
 google.maps.event.addDomListener(window, "load", initialize)
 

@@ -18,6 +18,7 @@ html {
     background-color: #fff;
   }
   .in {
+    display: block;
     margin-bottom: 14px;
     width: 140px;
     letter-spacing: 2px;
