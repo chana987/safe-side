@@ -1,4 +1,3 @@
-const streetMarkers = []
 const reviewMarkers = []
 let newMarker
 let geocoder
@@ -21,8 +20,6 @@ function initialize() {
     }
     var map = new google.maps.Map(document.getElementById("map"), mapOptions)
 
-    var testReviews = { lat: 32.063032, lng: 34.774198 }
-
     function placeMarker(location) {
         if (newMarker == null) {
             newMarker = new google.maps.Marker({
@@ -35,8 +32,6 @@ function initialize() {
         newMarker.setLabel('newMarker')
         return newMarker
     }
-
-
    
 	$(".submit-review").on("click", () => {
 		newMarker.setMap(null)
@@ -62,19 +57,6 @@ function initialize() {
 		reviewMarkers.push(marker)
 	}
 
-	async function makeStreetMarkers() {
-		let response = await $.get('/streets')
-		for (let street of response) {
-			for (let a of street.path) {
-				for (let b of a) {
-					let lng = b[0]
-					let lat = b[1]
-					makeMarker(lng, lat, streetMarkers)
-				}
-			}
-		}
-	}
-	
 	async function makeReviewMarkers() {
 		let reviews = await $.get('/reviews')
 		for (let review of reviews) {
@@ -88,61 +70,26 @@ function initialize() {
 			makeMarker(time, people, cleanliness, lighting, content, lat, lng)
 		}
 	}    
-
-
-    async function makeMarker(lng, lat, arr) {
-        let marker = new google.maps.Marker({
-            map: map,
-            position: { lat: lat, lng: lng }
-        })
-        arr.push(marker)
-    }
-
-    async function makeStreetMarkers() {
-        let response = await $.get('/streets')
-        for (let street of response) {
-            for (let a of street.path) {
-                for (let b of a) {
-                    let lng = b[0]
-                    let lat = b[1]
-                    makeMarker(lng, lat, streetMarkers)
-                }
-            }
-        }
-    }
-
-    async function makeReviewMarkers() {
-        let response = await $.get('/reviews')
-        for (let review of response) {
-            let lng = review.lng
-            let lat = review.lat
-            makeMarker(lng, lat, reviewMarkers)
-        }
-    }
-    
-    makeReviewMarkers()
-        function codeAddress(address) {
-
-    geocoder.geocode({ address: address }, function (results, status) {
-        if (status == 'OK') {
-            map.setCenter(results[0].geometry.location);
-            var marker = new google.maps.Marker({
-                map: map,
-                position: results[0].geometry.location
-            });
-            // mapOptions = { center: new google.maps.LatLng(marker.position.lat(), marker.position.lng()), zooom: 20 }
-        } else {
-            alert('Geocode was not successful for the following reason: ' + status);
-        }
-    });
-    }
+	makeReviewMarkers()
+	
+	function codeAddress(address) {
+		geocoder.geocode({ address: address }, function (results, status) {
+			if (status == 'OK') {
+				map.setCenter(results[0].geometry.location);
+				var marker = new google.maps.Marker({
+					map: map,
+					position: results[0].geometry.location
+				})
+			} else {
+				alert('Geocode was not successful for the following reason: ' + status);
+			}
+		})
+	}
+	
     $('.search-street').on('click', () => {
         let address = document.getElementById('search-street-input').value
         codeAddress(address)
     })
-}
-    
+} 
 
 google.maps.event.addDomListener(window, "load", initialize)
-
-
