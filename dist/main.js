@@ -9,20 +9,26 @@ $(".search-reviews").on("click", async () => {
 $(".submit-review").on("click", async () => {
 	let newReview = {
 		time: new Date(`${$(".date-input").val()} ${$(".time-input").val()}`),
-        lat: newMarker.getPosition().lat(),
-        lng: newMarker.getPosition().lng(),
+		lat: newMarker.getPosition().lat(),
+		lng: newMarker.getPosition().lng(),
 		content: $(".content-input").val(),
 		people: $(".people-input").val(),
 		cleanliness: $(".cleanliness-input").val(),
 		lighting: $(".lighting-input").val()
-    }
-    $(".date-input").val("")
-    $(".time-input").val("")
-    $(".content-input").val("")
-    $(".people-input").val("")
-    $(".cleanliness-input").val("")
-    $(".lighting-input").val("")
-    await appManager.saveReview(newReview)
+	}
+	$(".date-input").val("")
+	$(".time-input").val("")
+	$(".content-input").val("")
+	$(".people-input").val("")
+	$(".cleanliness-input").val("")
+	$(".lighting-input").val("")
+	await appManager.saveReview(newReview)
     await appManager.getReviewsFromDb()
-    renderer.renderData(appManager.reviews)
+    $(".success-message").append(
+		`<p class="success-content">Your review has been added.</p>
+		<p class="success-content">Thanks for your contribution!</p>`
+	)
+    setTimeout(function () {
+        $(".success-message").empty()
+    }, 2500)
 })
