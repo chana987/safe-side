@@ -23,6 +23,7 @@
  
 	<button id='map-btn' class="search-street">Search</button>
 	<button id='find-loc'>Find</button>
+	<button id="search-reviews">display-review</button>
 	<div class="success-message"></div>
 		
 	<div class="reviews"></div>
@@ -103,7 +104,7 @@
 </div>
 
 	<script id="review-template" type="text/x-handlebars-template">
-	{{#each data}}
+	{{#each review}}
 	<div class="review-container">
 		<div class="time">Time: {{time}}</div>
 		<div class="location">Location: {{location}}</div>

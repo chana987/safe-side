@@ -94,19 +94,19 @@ function initialize() {
     }
     makeReviewMarkers()
 
-    const oriHandler = () => {
+    // const oriHandler = () => {
 
-        mapOptions.zoom = 16
+    //     mapOptions.zoom = 16
 
-        map = new google.maps.Map(document.getElementById("map"), mapOptions)
+    //     map = new google.maps.Map(document.getElementById("map"), mapOptions)
 
-        var input = document.getElementById('search-street-input')
-        map.controls[google.maps.ControlPosition.TOP_LEFT].push(input)
+    //     var input = document.getElementById('search-street-input')
+    //     map.controls[google.maps.ControlPosition.TOP_LEFT].push(input)
 
-        var btn = document.getElementById('map-btn')
-        map.controls[google.maps.ControlPosition.TOP_LEFT].push(btn)
-        makeReviewMarkers()
-    }
+    //     var btn = document.getElementById('map-btn')
+    //     map.controls[google.maps.ControlPosition.TOP_LEFT].push(btn)
+    //     makeReviewMarkers()
+    // }
     function codeAddress(address) {
         geocoder.geocode({ address: address }, function (results, status) {
             if (status == "OK") {
@@ -115,7 +115,7 @@ function initialize() {
                     map: map,
                     position: results[0].geometry.location
                 })
-                oriHandler()
+               // oriHandler()
             } else {
                 alert("Geocode was not successful for the following reason: " + status)
             }
@@ -127,13 +127,13 @@ function initialize() {
         codeAddress(address)
     })
 
-    function initMap() {
-  var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 8,
-    center: {lat: 40.731, lng: -73.997}
-  });
-  var geocoder = new google.maps.Geocoder;
-  var infowindow = new google.maps.InfoWindow;
+//     function initMap() {
+//    map = new google.maps.Map(document.getElementById('map'), {
+//     zoom: 8,
+//     center: {lat: 40.731, lng: -73.997}
+//   });
+//    geocoder = new google.maps.Geocoder;
+//   infowindow = new google.maps.InfoWindow;
 
   document.getElementById('find-loc').addEventListener('click', function() {
     geocodeLatLng(geocoder, map, infowindow);
