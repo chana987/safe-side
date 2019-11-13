@@ -32,3 +32,10 @@ $(".submit-review").on("click", async () => {
         $(".success-message").empty()
     }, 2500)
 })
+
+// Toggle bottom menu 
+$(function () {
+   $(".add-review").click(function () {
+        $("#map").toggle("fast") 
+    })
+})
