@@ -1,11 +1,31 @@
-html,
-body,
-#map {
-	height: 100%;
-	margin: 0px;
-	padding: 0px;
-	-webkit-font-smoothing: antialiased;
-	text-emphasis: bold;
+
+html, body, #map {
+  height: 93vh;
+  margin: 0px;
+  padding: 0px;
+  -webkit-font-smoothing: antialiased;
+  text-emphasis: bold;
+
+}
+
+header {
+  min-height: 6vh;
+  background-color: #d2ea9b;
+  display: flexbox;
+  font-family: Roboto;
+}
+
+ h5 {
+  margin: 0;
+  display: inline;
+  font-size: 22px;
+  font-family: Roboto;
+}
+
+ p {
+  font-family: Roboto;
+   padding-top: 15px;
+   display: inline-block;
 }
 
 #search-street-input {
@@ -24,20 +44,20 @@ body,
 }
 
 #map-btn {
-	background-color: #dbebb5;
-	font-family: Roboto;
-	font-size: 15px;
-	font-weight: 300;
-	margin-left: 12px;
-	margin-top: 16px;
-	width: 8%;
-	text-emphasis: bold;
-	height: 32px;
+  background-color: #dbebb5;
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 300;
+  margin-left: 12px;
+  margin-top: 16px;
+  width: 8%;
+  text-emphasis: bold;
+  height: 32px;
 }
 
 #map-btn:hover {
-	background-color: #dbebb5;
-	color: #829458;
+  background-color: #dbebb5;
+  color: #829458;
 }
 
 .in {
