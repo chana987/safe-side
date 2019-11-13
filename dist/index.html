@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,13 +12,15 @@
 
 <body>
 	<header>
-		<img src="logo.jpg" width="70vw" height="70vh"/>
+		<img src="logo.jpg" width="70vw" height="70vh" />
 		<h5>Safe Side - </h5>
 		<p>make cities great again</p>
 	</header>
 	<div id="map"></div>
 
+
 	<input type="text" class="controls" id="search-street-input" placeholder="Find location on map" value="Tel-Aviv, "/>
+
 	<button id='map-btn' class="search-street">Search</button>
 
 	<div class="success-message"></div>
@@ -30,27 +33,26 @@
 		<p class="location-input">Mark the location of your review on map to begin</p>
 		<div class="review-input">
 			<div>
-				<label for="date-input" class="date-label">Date of visit: </label>
-				<input type="date" class="date-input in" placeholder="" required/>
+				<label for="date-input" class="date-label">
+					<ion-icon class='ion-icon' ios="ios-calendar" md="md-calendar">
+					</ion-icon>
+				</label>
+				<input type="date" class="date-input in" placeholder="" required />
 			</div>
 			<div>
-				<label for="time-input" class="time-label">Time of visit: </label>
-				<input type="time" class="time-input in" placeholder="" required/>
+				<label for="time-input" class="time-label">
+					<ion-icon class='ion-icon' name="time">
+					</ion-icon>
+				</label>
+				<input type="time" class="time-input in" placeholder="" required />
 			</div>
 			<div>
-				<label for="people-input" class="people-label">Rate how crowded the area is: </label>
 
-				<input type="number" min="0" max="5" class="people-input in" placeholder="" required/>
-			</div>
-			<div>
-				<label for="cleanliness-input" class="cleanliness-label">Rate how well-kept the area is: </label>
-				<input type="number" min="0" max="5" class="cleanliness-input in" placeholder="" required/>
-			</div>
-			<div>
-				<label for="lighting-input" class="lighting-label">Rate how well lit the area is: </label>
-				<input type="number" min="0" max="5" class="lighting-input in" placeholder="" required/>
-
-				<span>Hardly any pedestrians</span>
+				<label for="people-input" class="people-label">
+					<ion-icon class='ion-icon' name="people">
+					</ion-icon>
+				</label>
+      				<span>Hardly any pedestrians</span>
 				<input type="radio" name="people-input radio" value="1">
 				<input type="radio" name="people-input radio" value="2">
 				<input type="radio" name="people-input radio" value="3">
@@ -59,7 +61,10 @@
 				<span>Very crowded</span>
 			</div>
 			<div>
-				<label for="cleanliness-input" class="cleanliness-label">Rate how well-kept the area is: </label>
+				<label for="cleanliness-input" class="cleanliness-label">
+					<ion-icon class='ion-icon' name="trash">
+					</ion-icon>
+				</label>
 				<span>Streets are filthy</span>
 				<input type="radio" name="cleanliness-input radio" value="1">
 				<input type="radio" name="cleanliness-input radio" value="2">
@@ -69,18 +74,25 @@
 				<span>Spotless and well kept</span>
 			</div>
 			<div>
-				<label for="lighting-input" class="lighting-label">Rate how well lit the area is: </label>
-				<span>Dark and gloomy</span>
+				<label for="lighting-input" class="lighting-label">
+					<ion-icon class='ion-icon' name="flashlight">
+					</ion-icon>
+				</label>
+        				<span>Dark and gloomy</span>
 				<input type="radio" name="lighting-input radio" value="1">
 				<input type="radio" name="lighting-input radio" value="2">
 				<input type="radio" name="lighting-input radio" value="3">
 				<input type="radio" name="lighting-input radio" value="4">  
 				<input type="radio" name="lighting-input radio" value="5">
-				<span>Brightly lit</span>			
+				<span>Brightly lit</span>		
+
 			</div>
 			<div>
-				<label for="content-input" class="content-label">Write about your experience: </label>
-				<input type="text" class="content-input in" placeholder=""/>
+				<label for="content-input" class="content-label">
+					<ion-icon class='ion-icon' name="clipboard">
+					</ion-icon>
+				</label>
+				<input type="text" class="content-input in" placeholder="" />
 			</div>
 			<button class="submit-review">Submit</button>
 		</div>
@@ -102,13 +114,15 @@
 	<script src="./jquery/dist/jquery.js"></script>
 	<script src="./moment/dist/moment.js"></script>
 	<script src="./handlebars/dist/handlebars.js"></script>
-    <script src="AppManager.js"></script>
+	<script type="module" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"></script>
+	<script src="AppManager.js"></script>
 	<script src="Renderer.js"></script>
 	<script type="text/javascript"
-    	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAtbzpk-aq32pC5OBoeCmftPWhTNMthKOM"></script>
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAtbzpk-aq32pC5OBoeCmftPWhTNMthKOM"></script>
 	<script src="Map.js"></script>
 	<script src="main.js"></script>
-		
+
 </body>
+
 
 </html>
