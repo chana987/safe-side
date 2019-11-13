@@ -18,13 +18,12 @@
 	<div id="map"></div>
 
 
-	<input type="text" class="controls" id="search-street-input" placeholder="Find location on map"
-		value="Tel-Aviv, " />
+	<input type="text" class="controls" id="search-street-input" placeholder="Find location on map" value="Tel-Aviv, "/>
 
 	<button id='map-btn' class="search-street">Search</button>
 
 	<div class="success-message"></div>
-
+		
 	<div class="reviews"></div>
 
 	<button class="add-review">
@@ -32,79 +31,24 @@
 	</button>
 
 	<div class="drop-menu">
-		<div class="form">
+	<div class="form">
 			<p class="location-input">Mark the location of your review on map to begin</p>
-			<div class="review-input">
-				<div>
-					<label for="date-input" class="date-label">
-						<ion-icon class='ion-icon' ios="ios-calendar" md="md-calendar">
-						</ion-icon>
-					</label>
-					<input type="date" class="date-input in" placeholder="" required />
-				</div>
-				<div>
-					<label for="time-input" class="time-label">
-						<ion-icon class='ion-icon' name="time">
-						</ion-icon>
-					</label>
-					<input type="time" class="time-input in" placeholder="" required />
-				</div>
-						<label for="people-input" class="people-label">
-								<ion-icon class='ion-icon' name="people">
-								</ion-icon>
-							</label>
-					<div class="radio-slider-container">
-						<nav class="radio-slider-nav">
-							<ul class="radio-slider-unordered-list">
-								<li class="radio-slider-list-item">
-									<label for="item">
-										<input class="radio-slider-item first-item" type="radio" name="item" value="1"
-											checked="checked" />
-										<div class="radio-slider-item-text-container">
-											<span class="radio-slider-item-text">Very quite</span>
-										</div>
-									</label>
-								</li>
-								<li>
-									<label for="item">
-										<input class="radio-slider-item second-item" type="radio" name="item"
-											value="2" />
-										<div class="radio-slider-item-text-container">
-											<span class="radio-slider-item-text">Not too crowded</span>
-										</div>
-									</label>
-								</li>
-								<li>
-									<label for="item">
-										<input class="radio-slider-item third-item" type="radio" name="item"
-											value="3" />
-										<div class="radio-slider-item-text-container">
-											<span class="radio-slider-item-text">Somewhat crowded</span>
-										</div>
-									</label>
-								</li>
-								<li>
-									<label for="item">
-										<input class="radio-slider-item fourth-item" type="radio" name="item"
-											value="4" />
-										<div class="radio-slider-item-text-container">
-											<span class="radio-slider-item-text">Pretty dense</span>
-										</div>
-									</label>
-								</li>
-								<li>
-									<label for="item">
-										<input class="radio-slider-item fifth-item" type="radio" name="item"
-											value="5" />
-										<div class="radio-slider-item-text-container">
-											<span class="radio-slider-item-text">Very crowded</span>
-										</div>
-									</label>
-								</li>
-							</ul>
-						</nav>
-					</div>
-					<!-- <div>
+		<div class="review-input">
+			<div>
+				<label for="date-input" class="date-label">
+					<ion-icon class='ion-icon' ios="ios-calendar" md="md-calendar">
+					</ion-icon>
+				</label>
+				<input type="date" class="date-input in" placeholder="" required />
+			</div>
+			<div>
+				<label for="time-input" class="time-label">
+					<ion-icon class='ion-icon' name="time">
+					</ion-icon>
+				</label>
+				<input type="time" class="time-input in" placeholder="" required />
+			</div>
+			<div>
 
 				<label for="people-input" class="people-label">
 					<ion-icon class='ion-icon' name="people">
@@ -117,45 +61,45 @@
 				<input type="radio" name="people-input radio" value="4">  
 				<input type="radio" name="people-input radio" value="5">
 				<span>Very crowded</span>
-			</div> -->
-					<div>
-						<label for="cleanliness-input" class="cleanliness-label">
-							<ion-icon class='ion-icon' name="trash">
-							</ion-icon>
-						</label>
-						<span>Streets are filthy</span>
-						<input type="radio" name="cleanliness-input radio" value="1">
-						<input type="radio" name="cleanliness-input radio" value="2">
-						<input type="radio" name="cleanliness-input radio" value="3">
-						<input type="radio" name="cleanliness-input radio" value="4">
-						<input type="radio" name="cleanliness-input radio" value="5">
-						<span>Spotless and well kept</span>
-					</div>
-					<div>
-						<label for="lighting-input" class="lighting-label">
-							<ion-icon class='ion-icon' name="flashlight">
-							</ion-icon>
-						</label>
-						<span>Dark and gloomy</span>
-						<input type="radio" name="lighting-input radio" value="1">
-						<input type="radio" name="lighting-input radio" value="2">
-						<input type="radio" name="lighting-input radio" value="3">
-						<input type="radio" name="lighting-input radio" value="4">
-						<input type="radio" name="lighting-input radio" value="5">
-						<span>Brightly lit</span>
-
-					</div>
-					<div>
-						<label for="content-input" class="content-label">
-							<ion-icon class='ion-icon' name="clipboard">
-							</ion-icon>
-						</label>
-						<input type="text" class="content-input in" placeholder="" />
-					</div>
-					<button class="submit-review">Submit</button>
 			</div>
+			<div>
+				<label for="cleanliness-input" class="cleanliness-label">
+					<ion-icon class='ion-icon' name="trash">
+					</ion-icon>
+				</label>
+				<span>Streets are filthy</span>
+				<input type="radio" name="cleanliness-input radio" value="1">
+				<input type="radio" name="cleanliness-input radio" value="2">
+				<input type="radio" name="cleanliness-input radio" value="3">
+				<input type="radio" name="cleanliness-input radio" value="4">  
+				<input type="radio" name="cleanliness-input radio" value="5">
+				<span>Spotless and well kept</span>
+			</div>
+			<div>
+				<label for="lighting-input" class="lighting-label">
+					<ion-icon class='ion-icon' name="flashlight">
+					</ion-icon>
+				</label>
+        				<span>Dark and gloomy</span>
+				<input type="radio" name="lighting-input radio" value="1">
+				<input type="radio" name="lighting-input radio" value="2">
+				<input type="radio" name="lighting-input radio" value="3">
+				<input type="radio" name="lighting-input radio" value="4">  
+				<input type="radio" name="lighting-input radio" value="5">
+				<span>Brightly lit</span>		
+
+			</div>
+			<div>
+				<label for="content-input" class="content-label">
+					<ion-icon class='ion-icon' name="clipboard">
+					</ion-icon>
+				</label>
+				<input type="text" class="content-input in" placeholder="" />
+			</div>
+			<button class="submit-review">Submit</button>
 		</div>
 	</div>
+</div>
 
 	<script id="review-template" type="text/x-handlebars-template">
 	{{#each data}}
