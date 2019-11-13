@@ -48,13 +48,14 @@ function initialize() {
 
 		let infowindow = new google.maps.InfoWindow({
 			content: contentString
-		});
+		})
 
 		let marker = new google.maps.Marker({
 			map: map,
 			position: {lat: lat, lng: lng},
 		})
-		arr.push(marker)
+
+		reviewMarkers.push(marker)
 	}
 
 	async function makeStreetMarkers() {
