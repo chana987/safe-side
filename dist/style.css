@@ -52,6 +52,10 @@ body,
 	padding: 5px;
 }
 
+.radio {
+	
+}
+
 .form {
 	margin-bottom: 14px;
 	width: 100%;
@@ -91,4 +95,8 @@ body,
 	height: 32px;
 	outline: none;
 	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.review-info-content {
+
 }
