@@ -1,4 +1,6 @@
 const reviewMarkers = []
+const blocks = []
+const streets = []
 let newMarker
 let geocoder
 
@@ -18,10 +20,11 @@ function initialize() {
         overviewMapControl: true,
         rotateControl: false
     }
+	var map = new google.maps.Map(document.getElementById("map"), mapOptions)
 	
-    var map = new google.maps.Map(document.getElementById("map"), mapOptions)
+	// map.data.loadGeoJson('https://storage.cloud.google.com/tlv_son/streets.json')
 	
-	var input = document.getElementById('search-street-input')
+		var input = document.getElementById('search-street-input')
  	map.controls[google.maps.ControlPosition.TOP_LEFT].push(input)
 
 	var btn = document.getElementById('map-btn')
@@ -36,7 +39,7 @@ function initialize() {
         } else {
             newMarker.setPosition(location)
         }
-        newMarker.setLabel('newMarker')
+        newMarker.setLabel('')
         return newMarker
     }
 
@@ -100,7 +103,8 @@ function initialize() {
     $('.search-street').on('click', () => {
         let address = document.getElementById('search-street-input').value
         codeAddress(address)
-    })
-}
+	})
+
+} 
 
 google.maps.event.addDomListener(window, "load", initialize)
