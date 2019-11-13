@@ -5,7 +5,7 @@ html, body, #map {
   padding: 0px;
   -webkit-font-smoothing: antialiased;
   text-emphasis: bold;
-  text-align:center;
+  text-align:left;
   background-color: #d2ea9b;
 }
 
@@ -94,7 +94,7 @@ div{
 	height: 33%;
   border-radius: 4;
   background-color: #d2ea9b;
-  text-align:center;
+  text-align:left;
 }
 
 .form--active{
@@ -135,3 +135,4 @@ div{
 .review-info-content {
 
 }
+
