@@ -5,7 +5,8 @@ html, body, #map {
   padding: 0px;
   -webkit-font-smoothing: antialiased;
   text-emphasis: bold;
-
+  text-align:center;
+  background-color: #d2ea9b;
 }
 
 header {
