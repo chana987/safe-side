@@ -5,7 +5,7 @@ let mapOptions
 let map
 
 function initialize() {
-<<<<<<< HEAD
+
     geocoder = new google.maps.Geocoder();
     mapOptions = {
         center: new google.maps.LatLng(32.060033, 34.769145),
@@ -30,32 +30,9 @@ function initialize() {
 
     var btn = document.getElementById('map-btn')
     map.controls[google.maps.ControlPosition.TOP_LEFT].push(btn)
-=======
-	geocoder = new google.maps.Geocoder()
-	const mapOptions = {
-		center: new google.maps.LatLng(32.060033, 34.769145),
-		zoom: 14,
-		mapTypeId: google.maps.MapTypeId.HYBRID,
-		scrollwheel: true,
-		draggable: true,
-		panControl: true,
-		zoomControl: true,
-		mapTypeControl: false,
-		scaleControl: true,
-		streetViewControl: false,
-		overviewMapControl: true,
-		rotateControl: false
-	}
-	const map = new google.maps.Map(document.getElementById("map"), mapOptions)
 
-	// map.data.loadGeoJson('https://storage.cloud.google.com/tlv_son/streets.json')
 
-	const input = document.getElementById("search-street-input")
-	map.controls[google.maps.ControlPosition.TOP_LEFT].push(input)
->>>>>>> master
 
-    const btn = document.getElementById("map-btn")
-    map.controls[google.maps.ControlPosition.TOP_LEFT].push(btn)
 
     function placeMarker(location) {
         if (newMarker == null) {
@@ -100,8 +77,6 @@ function initialize() {
     }
 
 
-
-
     async function makeReviewMarkers() {
         let reviews = await $.get("/reviews")
         for (let review of reviews) {
@@ -117,19 +92,19 @@ function initialize() {
     }
     makeReviewMarkers()
 
-    // const oriHandler = () => {
+    const oriHandler = () => {
 
-    //     mapOptions.zoom = 16
+        mapOptions.zoom = 16
 
-    //     map = new google.maps.Map(document.getElementById("map"), mapOptions)
+        map = new google.maps.Map(document.getElementById("map"), mapOptions)
 
-    //     var input = document.getElementById('search-street-input')
-    //     map.controls[google.maps.ControlPosition.TOP_LEFT].push(input)
+        var input = document.getElementById('search-street-input')
+        map.controls[google.maps.ControlPosition.TOP_LEFT].push(input)
 
-    //     var btn = document.getElementById('map-btn')
-    //     map.controls[google.maps.ControlPosition.TOP_LEFT].push(btn)
-    //     makeReviewMarkers()
-    // }
+        var btn = document.getElementById('map-btn')
+        map.controls[google.maps.ControlPosition.TOP_LEFT].push(btn)
+        //makeReviewMarkers()
+    }
     function codeAddress(address) {
         geocoder.geocode({ address: address }, function (results, status) {
             if (status == "OK") {
@@ -138,6 +113,7 @@ function initialize() {
                     map: map,
                     position: results[0].geometry.location
                 })
+                oriHandler()
             } else {
                 alert("Geocode was not successful for the following reason: " + status)
             }
