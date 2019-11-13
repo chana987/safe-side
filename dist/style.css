@@ -3,17 +3,18 @@ html, body, #map {
   margin: 0px;
   padding: 0px;
   -webkit-font-smoothing: antialiased;
+  text-emphasis: bold;
 }
 
 #search-street-input {
-  background-color: #fff;
+  background-color: #dbebb5;
   font-family: Roboto;
   font-size: 15px;
   font-weight: 300;
   margin-left: 12px;
   padding: 0 11px 0 13px;
-  text-overflow: ellipsis;
   width: 400px;
+  border-start-end-radius: 12px;
 }
 
 #search-street-input:focus {
@@ -21,21 +22,20 @@ html, body, #map {
 }
 
 #map-btn {
-  background-color: transparent;
+  background-color: #dbebb5;
   font-family: Roboto;
   font-size: 15px;
   font-weight: 300;
   margin-left: 12px;
   margin-top: 16px;
-  text-overflow: ellipsis;
   width: 8%;
-  color: #fff;
   text-emphasis: bold;
-  height: 32px
+  height: 32px;
+
 }
 #map-btn:hover{
-  background-color: white;
-  color: black
+  background-color: #dbebb5;
+  color: #829458;
 }
 .in {
   margin-bottom: 14px;
