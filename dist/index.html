@@ -17,9 +17,13 @@
 	</header>
 	<div id="map"></div>
 
-	<input type="text" class="controls" id="search-street-input" placeholder="Find location on map" />
+
+	<input type="text" class="controls" id="search-street-input" placeholder="Find location on map" value="Tel-Aviv, "/>
+
 	<button id='map-btn' class="search-street">Search</button>
 
+	<div class="success-message"></div>
+		
 	<div class="reviews"></div>
 
 	<button class="add-review">Add new review</button>
@@ -42,25 +46,52 @@
 				<input type="time" class="time-input in" placeholder="" required />
 			</div>
 			<div>
+
 				<label for="people-input" class="people-label">
 					<ion-icon class='ion-icon' name="people">
 					</ion-icon>
 				</label>
-				<input type="number" class="people-input in" placeholder="" required />
+      				<span>Hardly any pedestrians</span>
+				<input type="radio" name="people-input radio" value="1">
+				<input type="radio" name="people-input radio" value="2">
+				<input type="radio" name="people-input radio" value="3">
+				<input type="radio" name="people-input radio" value="4">  
+				<input type="radio" name="people-input radio" value="5">
+				<span>Very crowded</span>
+				<span>Streets are filthy</span>
+				<input type="radio" name="cleanliness-input radio" value="1">
+				<input type="radio" name="cleanliness-input radio" value="2">
+				<input type="radio" name="cleanliness-input radio" value="3">
+				<input type="radio" name="cleanliness-input radio" value="4">  
+				<input type="radio" name="cleanliness-input radio" value="5">
+				<span>Spotless and well kept</span>
 			</div>
 			<div>
 				<label for="cleanliness-input" class="cleanliness-label">
 					<ion-icon class='ion-icon' name="trash">
 					</ion-icon>
 				</label>
-				<input type="number" class="cleanliness-input in" placeholder="" required />
+				<span>Streets are filthy</span>
+				<input type="radio" name="cleanliness-input radio" value="1">
+				<input type="radio" name="cleanliness-input radio" value="2">
+				<input type="radio" name="cleanliness-input radio" value="3">
+				<input type="radio" name="cleanliness-input radio" value="4">  
+				<input type="radio" name="cleanliness-input radio" value="5">
+				<span>Spotless and well kept</span>
 			</div>
 			<div>
 				<label for="lighting-input" class="lighting-label">
 					<ion-icon class='ion-icon' name="flashlight">
 					</ion-icon>
 				</label>
-				<input type="number" class="lighting-input in" placeholder="" required />
+        				<span>Dark and gloomy</span>
+				<input type="radio" name="lighting-input radio" value="1">
+				<input type="radio" name="lighting-input radio" value="2">
+				<input type="radio" name="lighting-input radio" value="3">
+				<input type="radio" name="lighting-input radio" value="4">  
+				<input type="radio" name="lighting-input radio" value="5">
+				<span>Brightly lit</span>		
+
 			</div>
 			<div>
 				<label for="content-input" class="content-label">
@@ -87,6 +118,7 @@
 	</script>
 
 	<script src="./jquery/dist/jquery.js"></script>
+	<script src="./moment/dist/moment.js"></script>
 	<script src="./handlebars/dist/handlebars.js"></script>
 	<script type="module" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"></script>
 	<script src="AppManager.js"></script>

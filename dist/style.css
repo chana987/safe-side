@@ -71,6 +71,10 @@ div{
 	background-color: #fff;
 }
 
+.radio {
+	
+}
+
 .form {
 	width: 100%;
 	outline: none;
@@ -114,4 +118,8 @@ div{
 	height: 32px;
 	outline: none;
 	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.review-info-content {
+
 }
