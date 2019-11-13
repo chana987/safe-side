@@ -26,10 +26,13 @@
 		
 	<div class="reviews"></div>
 
-	<button class="add-review"><ion-icon class='ion-icon' name="arrow-dropup"></ion-icon></button>
+	<button class="add-review">
+		<ion-icon class='ion-icon' name="arrow-dropup"></ion-icon>
+	</button>
 
+	<div class="drop-menu">
 	<div class="form">
-		<p class="location-input">Mark the location of your review on map to begin</p>
+			<p class="location-input">Mark the location of your review on map to begin</p>
 		<div class="review-input">
 			<div>
 				<label for="date-input" class="date-label">
@@ -96,6 +99,7 @@
 			<button class="submit-review">Submit</button>
 		</div>
 	</div>
+</div>
 
 	<script id="review-template" type="text/x-handlebars-template">
 	{{#each data}}
