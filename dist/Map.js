@@ -43,17 +43,8 @@ function initialize() {
 		placeMarker(e.latLng, map)
 	})
 		
-	async function makeMarker(i, review){
-		let contentString = '<div id="review-info-content">'+
-		'<h1 class="review-info-heading">Review</h1>'+
-			'<div class="review-info-content">'+
-				`<p class="review-info-time">${review.time}</p>`
-				`<p class="review-info-people">${review.people}</p>`
-				`<p class="review-info-cleanliness">${review.cleanliness}</p>`
-				`<p class="review-info-lighting">${review.lighting}</p>`
-				`<p class="review-info-content">${review.content}</p>`
-			'</div>'+
-		'</div>'
+	const makeMarker = (time, people, cleanliness, lighting, content, lat, lng) => {
+		let contentString = `<div class="review-info-content"><div class="review-info-content"><p class="review-info-time">Time: ${time}</p><p class="review-info-people">Crowds: ${people}</p><p class="review-info-cleanliness">Cleanliness: ${cleanliness}</p><p class="review-info-lighting">Lighting: ${lighting}</p><p class="review-info-content">Content: ${content}</p></div></div>`
 
 		let infowindow = new google.maps.InfoWindow({
 			content: contentString
@@ -61,8 +52,7 @@ function initialize() {
 
 		let marker = new google.maps.Marker({
 			map: map,
-			position: {lat: reviews[i].lat, lng: reviews[i].lng},
-			title: i
+			position: {lat: lat, lng: lng},
 		})
 
 		marker.addListener('click', function() {
@@ -87,8 +77,15 @@ function initialize() {
 	
 	async function makeReviewMarkers() {
 		let reviews = await $.get('/reviews')
-		for (let i in reviews) {
-			makeMarker(i)
+		for (let review of reviews) {
+			let time = review.time
+			let people = review.people
+			let cleanliness = review.cleanliness
+			let lighting = review.lighting
+			let content = review.content
+			let lat = review.lat
+			let lng = review.lng
+			makeMarker(time, people, cleanliness, lighting, content, lat, lng)
 		}
 	}    
 
