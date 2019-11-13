@@ -23,6 +23,12 @@ $(".submit-review").on("click", async () => {
 	$(".cleanliness-input").val("")
 	$(".lighting-input").val("")
 	await appManager.saveReview(newReview)
-	await appManager.getReviewsFromDb()
-	renderer.renderData(appManager.reviews)
+    await appManager.getReviewsFromDb()
+    $(".success-message").append(
+		`<p class="success-content">Your review has been added.</p>
+		<p class="success-content">Thanks for your contribution!</p>`
+	)
+    setTimeout(function () {
+        $(".success-message").empty()
+    }, 2500)
 })
