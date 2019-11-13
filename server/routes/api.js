@@ -20,6 +20,21 @@ router.get('/streets', function (req, res) {
     })
 })
 
+router.get('/blocks', function (req, res) {
+    requestPromise('https://api.tel-aviv.gov.il/gis/Layer?layerCode=626', function(err, response) {
+        let parsedData = JSON.parse(response.body)
+        let blockData = parsedData.features
+        let blocks = []
+        for (let s of blockData) {
+            let newBlock = {
+                path: s.geometry.rings[0]
+            }
+            blocks.push(newBlock)
+        }
+        res.send(blocks)
+    })
+})
+
 router.get('/reviews', function (req, res) {
     Review.find({}, function (err, reviews) {
         res.send(reviews)
