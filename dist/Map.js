@@ -18,7 +18,14 @@ function initialize() {
         overviewMapControl: true,
         rotateControl: false
     }
+	
     var map = new google.maps.Map(document.getElementById("map"), mapOptions)
+	
+	var input = document.getElementById('search-street-input')
+ 	map.controls[google.maps.ControlPosition.TOP_LEFT].push(input)
+
+	var btn = document.getElementById('map-btn')
+ 	map.controls[google.maps.ControlPosition.TOP_LEFT].push(btn)
 
     function placeMarker(location) {
         if (newMarker == null) {
