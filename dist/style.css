@@ -10,10 +10,18 @@ html, body, #map {
 }
 
 header {
+ 
   min-height: 6vh;
   background-color: #d2ea9b;
-  display: flexbox;
+  display: inline;
   font-family: Roboto;
+
+}
+.header{
+  display: grid;
+  grid-row-gap: 22px;
+  grid-template-columns: 10% 90%;
+  text-align: left;
 }
 
  h5 {
@@ -25,8 +33,8 @@ header {
 
  p {
   font-family: Roboto;
-   padding-top: 15px;
-   display: inline-block;
+  margin: 0;
+
 }
 
 #search-street-input {
