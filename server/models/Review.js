@@ -6,9 +6,9 @@ const reviewSchema = new Schema({
     lat: Number,
     lng: Number,
     content: String,
-    people: Number,
-    cleanliness: Number,
-    lighting: Number,
+    people: String,
+    cleanliness: String,
+    lighting: String,
     street: String
 })
 

@@ -16,7 +16,7 @@ class AppManager {
 	}
 
 	async saveReview(review) {
-		await $.post("/review", review, () => {})
+        await $.post("/review", review, () => {})
 	}
 
 	async _removeReview(review) {
