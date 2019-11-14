@@ -2,11 +2,7 @@ const reviewMarkers = []
 let newMarker
 let searchLocation
 let geocoder
-let mapOptions
 let map
-let infowindow 
-let marker
-
 
 function initialize() {
 	const mapOptions = {
@@ -73,7 +69,11 @@ function initialize() {
 	loadMap()
 
 	const makeMarker = (time, people, cleanliness, lighting, content, lat, lng) => {
-		let contentString = `<div class="review-info-content"><p class="review-info-time">Time: ${time}</p><p class="review-info-people">Crowds: ${people}</p><p class="review-info-cleanliness">Cleanliness: ${cleanliness}</p><p class="review-info-lighting">Lighting: ${lighting}</p><p class="review-info-content">Content: ${content}</p></div>`
+		let contentString = `<div class="review-info-content">` +
+		`<p class="review-info-time">Time: ${time}</p>` +
+		`<p class="review-info-people">Crowds: ${people}</p>` +
+		`<p class="review-info-cleanliness">Cleanliness: ${cleanliness}</p>` +
+		`<p class="review-info-lighting">Lighting: ${lighting}</p><p class="review-info-content">Content: ${content}</p></div>`
 
 		let infowindow = new google.maps.InfoWindow({
 			content: contentString
@@ -106,7 +106,7 @@ function initialize() {
 	}
 	makeReviewMarkers()
 
-	function loadSearchLocation(location) {
+	function loadSearchLocation() {
 		map.setCenter(searchLocation)
 			const searchMarker = new google.maps.Marker({
 				map: map,
