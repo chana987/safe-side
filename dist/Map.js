@@ -1,9 +1,9 @@
 const reviewMarkers = []
 let newMarker
+let searchLocation
 let geocoder
 
 function initialize() {
-	geocoder = new google.maps.Geocoder()
 	const mapOptions = {
 		center: new google.maps.LatLng(32.060033, 34.769145),
 		zoom: 14,
@@ -23,48 +23,49 @@ function initialize() {
 	const btn = document.getElementById("map-btn")
 
 	const loadMap = () => {
-        map = new google.maps.Map(document.getElementById("map"), mapOptions)
+		newMarker = null
+		geocoder = new google.maps.Geocoder()
+		map = new google.maps.Map(document.getElementById("map"), mapOptions)
         map.controls[google.maps.ControlPosition.TOP_LEFT].push(input)
-        map.controls[google.maps.ControlPosition.TOP_LEFT].push(btn)
+		map.controls[google.maps.ControlPosition.TOP_LEFT].push(btn)
+			
+		function placeMarker(location) {
+			if (newMarker == null) {
+				newMarker = new google.maps.Marker({
+					position: location,
+					map: map
+				})
+			} else {
+				newMarker.setPosition(location)
+			}
+			newMarker.setLabel("")
+
+			var latlng = {
+				lat: newMarker.getPosition().lat(),
+				lng: newMarker.getPosition().lng()
+			}
+
+			geocoder.geocode({'location': latlng}, function(results, status) {
+				if (status === 'OK') {
+					newMarker.street = results[0].address_components[1].short_name
+				} else {
+					window.alert('Geocoder failed due to: ' + status);
+				}
+			})	  
+			return newMarker
+		}
+
+		$(".submit-review").on("click", () => {
+			newMarker.setMap(null)
+			newMarker = null
+		})
+		
+		map.addListener("click", function(e) {
+			placeMarker(e.latLng, map)
+		})
+
 	}
 	loadMap()
-	
-	function placeMarker(location) {
-		if (newMarker == null) {
-			newMarker = new google.maps.Marker({
-				position: location,
-				map: map
-			})
-		} else {
-			newMarker.setPosition(location)
-		}
-		newMarker.setLabel("")
-
-		var latlng = {
-			lat: newMarker.getPosition().lat(),
-			lng: newMarker.getPosition().lng()
-		}
-		geocoder.geocode({'location': latlng}, function(results, status) {
-			console.log(latlng)
-			if (status === 'OK') {
-				newMarker.street = results[0].address_components[1].short_name
-			} else {
-				window.alert('Geocoder failed due to: ' + status);
-			}
-		  })	  
-
-		return newMarker
-	}
-
-	$(".submit-review").on("click", () => {
-		newMarker.setMap(null)
-		newMarker = null
-		makeReviewMarkers()
-	})
-
-	map.addListener("click", function(e) {
-		placeMarker(e.latLng, map)
-	})
 
 	const makeMarker = (time, people, cleanliness, lighting, content, lat, lng) => {
 		let contentString = `<div class="review-info-content"><p class="review-info-time">Time: ${time}</p><p class="review-info-people">Crowds: ${people}</p><p class="review-info-cleanliness">Cleanliness: ${cleanliness}</p><p class="review-info-lighting">Lighting: ${lighting}</p><p class="review-info-content">Content: ${content}</p></div>`
@@ -100,16 +101,21 @@ function initialize() {
 	}
 	makeReviewMarkers()
 
+	function loadSearchLocation(location) {
+		map.setCenter(searchLocation)
+			const searchMarker = new google.maps.Marker({
+				map: map,
+				position: searchLocation
+			})
+	}
+
 	function codeAddress(address) {
 		geocoder.geocode({ address: address }, function(results, status) {
 			if (status == "OK") {
-				map.setCenter(results[0].geometry.location)
-				const marker = new google.maps.Marker({
-					map: map,
-					position: results[0].geometry.location
-				})
+				searchLocation = results[0].geometry.location
 				mapOptions.zoom = 16
 				loadMap()
+				loadSearchLocation(searchLocation)
 				makeReviewMarkers()
 			} else {
 				alert("Geocode was not successful for the following reason: " + status)
