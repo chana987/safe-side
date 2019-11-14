@@ -42,7 +42,7 @@
 	<input type="text" class="controls" id="search-street-input" placeholder="Find location on map"
 		value="Tel-Aviv, " />
 
-	<button id='map-btn' class="search-street">Search</button>
+	<button id='map-btn' class="search-street controls">Search</button>
 
 	<div class="success-message"></div>
 
@@ -232,6 +232,14 @@
 						</nav>
 					</div>
 				</div>
+
+				<button class="submit-review controls">Submit</button>
+			</div>
+			<div class="reviews">
+				<button id="search-reviews">
+					<ion-icon class='ion-icon' name="list"></ion-icon>
+			</button></div>
+
 			</div>
 			<div>
 
@@ -242,15 +250,18 @@
 				<input type="text" class="content-input in" placeholder="" />
 			</div>
 			<button class="submit-review">Submit</button>
+
 		</div>
 	</div>
 </div>
+
 
 	<div class="reviews">
 		<button id="search-reviews">
 			<ion-icon class='ion-icon' name="list"></ion-icon>
 		</button></div>
 	</div>
+
 
 	<script id="review-template" type="text/x-handlebars-template">
 	{{#each review}}
