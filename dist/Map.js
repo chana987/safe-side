@@ -39,6 +39,20 @@ function initialize() {
 			newMarker.setPosition(location)
 		}
 		newMarker.setLabel("")
+
+		var latlng = {
+			lat: newMarker.getPosition().lat(),
+			lng: newMarker.getPosition().lng()
+		}
+		geocoder.geocode({'location': latlng}, function(results, status) {
+			console.log(latlng)
+			if (status === 'OK') {
+				newMarker.street = results[0].address_components[1].short_name
+			} else {
+				window.alert('Geocoder failed due to: ' + status);
+			}
+		  })	  
+
 		return newMarker
 	}
 

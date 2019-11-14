@@ -14,7 +14,8 @@ $(".submit-review").on("click", async () => {
 		content: $(".content-input").val(),
 		people: $(".people-input").val(),
 		cleanliness: $(".cleanliness-input").val(),
-		lighting: $(".lighting-input").val()
+        lighting: $(".lighting-input").val(),
+        street: newMarker.street
 	}
 	$(".date-input").val("")
 	$(".time-input").val("")
