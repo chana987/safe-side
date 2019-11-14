@@ -1,40 +1,38 @@
-
-html, body, #map {
-  height: 85vh;
-  margin: 0px;
-  padding: 0px;
-  -webkit-font-smoothing: antialiased;
-  text-emphasis: bold;
-  text-align:left;
-  background-color: #d2ea9b;
+html,
+body,
+#map {
+	height: 85vh;
+	margin: 0px;
+	padding: 0px;
+	-webkit-font-smoothing: antialiased;
+	text-emphasis: bold;
+	text-align: left;
+	background-color: #d2ea9b;
 }
 
 header {
- 
-  min-height: 6vh;
-  background-color: #d2ea9b;
-  display: inline;
-  font-family: Roboto;
-
+	min-height: 6vh;
+	background-color: #d2ea9b;
+	display: inline;
+	font-family: Roboto;
 }
-.header{
-  display: grid;
-  grid-row-gap: 22px;
-  grid-template-columns: 10% 90%;
-  text-align: left;
+.header {
+	display: grid;
+	grid-row-gap: 22px;
+	grid-template-columns: 10% 90%;
+	text-align: left;
 }
 
- h5 {
-  margin: 0;
-  display: inline;
-  font-size: 22px;
-  font-family: Roboto;
+h5 {
+	margin: 0;
+	display: inline;
+	font-size: 22px;
+	font-family: Roboto;
 }
 
- p {
-  font-family: Roboto;
-  margin: 0;
-
+p {
+	font-family: Roboto;
+	margin: 0;
 }
 
 #search-street-input {
@@ -53,26 +51,26 @@ header {
 }
 
 #map-btn {
-  background-color: #dbebb5;
-  font-family: Roboto;
-  font-size: 15px;
-  font-weight: 300;
-  margin-left: 12px;
-  margin-top: 16px;
-  width: 8%;
-  text-emphasis: bold;
-  height: 32px;
+	background-color: #dbebb5;
+	font-family: Roboto;
+	font-size: 15px;
+	font-weight: 300;
+	margin-left: 12px;
+	margin-top: 16px;
+	width: 8%;
+	text-emphasis: bold;
+	height: 32px;
 }
 
 #map-btn:hover {
-  background-color: #dbebb5;
-  color: #829458;
+	background-color: #dbebb5;
+	color: #829458;
 }
-div{
-  align-content: top;
+div {
+	align-content: top;
 }
 .in {
- align-items: center;
+	align-items: center;
 	width: 140px;
 	letter-spacing: 2px;
 	font-size: 11px;
@@ -80,44 +78,40 @@ div{
 	background-color: #fff;
 }
 
-.radio {
-	
+.add-review {
+	height: 0px;
+	padding: 0;
+	border: 0;
 }
-
-.add-review{
-  height: 0px;
-  padding: 0;
-  border: 0
-}
-#search-reviews{
-  height: 0px;
-  padding: 0;
-  border: 0
+#search-reviews {
+	height: 0px;
+	padding: 0;
+	border: 0;
 }
 
 .form {
-  display: grid;
+	display: grid;
 	width: 100vw;
 	outline: none;
 	border: 1px;
-  grid-row-gap: 22px;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(1, 1fr);
+	grid-row-gap: 22px;
+	grid-template-columns: repeat(2, 1fr);
+	grid-template-rows: repeat(1, 1fr);
 	letter-spacing: 2px;
 	font-size: 11px;
 	padding-top: 15px;
 	height: 33%;
-  border-radius: 4;
-  background-color: #d2ea9b;
-  text-align:left;
+	border-radius: 4;
+	background-color: #d2ea9b;
+	text-align: left;
 }
 
-.form--active{
-  height: 70%;
+.form--active {
+	height: 70%;
 }
 
 .ion-icon {
-  font-size: 50px;
+	font-size: 50px;
 }
 
 .btn {
@@ -147,7 +141,22 @@ div{
 	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
 
-.review-info-content {
-
+.ace596 {
+	color: #ace596;
 }
 
+.f8c959 {
+	color: #f8c959;
+}
+
+.f96931 {
+	color: #f96931;
+}
+
+.e03f00 {
+	color: #e03f00;
+}
+
+.a10803 {
+	color: #a10803;
+}
