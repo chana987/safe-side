@@ -124,11 +124,10 @@ div {
   border: 1px;
   grid-row-gap: 22px;
   grid-template-columns: repeat(2, 2fr);
-  grid-template-rows: 10% 90%;
+  grid-template-rows: 10% 200%;
   letter-spacing: 2px;
   font-size: 11px;
   padding-top: 15px;
-  height: 33%;
   border-radius: 4;
   background-color: #d2ea9b;
   text-align:left;

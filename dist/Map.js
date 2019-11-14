@@ -58,6 +58,7 @@ function initialize() {
 		$(".submit-review").on("click", () => {
 			newMarker.setMap(null)
 			newMarker = null
+			makeReviewMarkers()
 		})
 		
 		map.addListener("click", function(e) {
