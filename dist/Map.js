@@ -24,7 +24,6 @@ function initialize() {
 	const btn = document.getElementById("map-btn")
 
 	const loadMap = () => {
-		newMarker = null
 		geocoder = new google.maps.Geocoder()
 		map = new google.maps.Map(document.getElementById("map"), mapOptions)
         map.controls[google.maps.ControlPosition.TOP_LEFT].push(input)
@@ -72,12 +71,12 @@ function initialize() {
 		let contentString = `<div class="review-info-content">` +
 		`<p class="review-info-time"><ion-icon class='ion-icon' name="time">
 		</ion-icon> ${moment(time).format('HH:mm')}</p><br>` +
-		`<p class="review-info-people"><ion-icon class='ion-icon' name="people">
-		</ion-icon> ${people}</p>` +
-		`<p class="review-info-cleanliness"><ion-icon class='ion-icon' name="trash">
-		</ion-icon> ${cleanliness}</p>` +
-		`<p class="review-info-lighting"><ion-icon class='ion-icon' name="flashlight">
-		</ion-icon> ${lighting}</p><br>`+ 
+		`<p class="review-info-people"><ion-icon class='ion-icon ${people}' name="people">
+		</ion-icon></p>` +
+		`<p class="review-info-cleanliness"><ion-icon class='ion-icon ${cleanliness}' name="trash">
+		</ion-icon></p>` +
+		`<p class="review-info-lighting"><ion-icon class='ion-icon ${lighting}' name="flashlight">
+		</ion-icon></p><br>`+ 
 		`<p class="review-info-content"><ion-icon class='ion-icon' name="clipboard">
 		</ion-icon> ${content}</p></div>`
 

@@ -243,14 +243,14 @@
 			</div>
 			<button class="submit-review">Submit</button>
 		</div>
-		<div class="reviews">
-			<button id="search-reviews">
-				<ion-icon class='ion-icon' name="list"></ion-icon>
-			</button></div>
-	</div>
 	</div>
 </div>
 
+	<div class="reviews">
+		<button id="search-reviews">
+			<ion-icon class='ion-icon' name="list"></ion-icon>
+		</button></div>
+	</div>
 
 	<script id="review-template" type="text/x-handlebars-template">
 	{{#each review}}
@@ -261,9 +261,9 @@
 			<span class="location"><ion-icon class='ion-icon' name="pin"></ion-icon> {{street}}</span>
 		</div>
 		<div>
-			<span class="people"><ion-icon class='ion-icon {{cleanliness}} {{people}}' name="people">
+			<span class="people"><ion-icon class='ion-icon {{people}}' name="people">
 				</ion-icon></span>
-			<span class="cleanliness"><ion-icon class='ion-icon' name="trash">
+			<span class="cleanliness"><ion-icon class='ion-icon {{cleanliness}}' name="trash">
 				</ion-icon></span>
 			<span class="lighting"><ion-icon class='ion-icon {{lighting}}' name="flashlight">
 				</ion-icon></span>
