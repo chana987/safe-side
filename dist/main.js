@@ -6,20 +6,17 @@ $("#search-reviews").on("click", async () => {
     renderer.renderData(appManager.reviews)
 })
 
-
-
 $(".submit-review").on("click", async () => {
-
 	let newReview = {
 		time: new Date(`${$(".date-input").val()} ${$(".time-input").val()}`),
 		lat: newMarker.getPosition().lat(),
 		lng: newMarker.getPosition().lng(),
 		content: $(".content-input").val(),
-		people: $(".people-input").val(),
-		cleanliness: $(".cleanliness-input").val(),
-        lighting: $(".lighting-input").val(),
+		people: $('input[name=people]:checked').val(),
+		cleanliness: $('input[name=cleanliness]:checked').val(),
+        lighting: $('input[name=lighting]:checked').val(),
         street: newMarker.street
-	}
+    }
 	$(".date-input").val("")
 	$(".time-input").val("")
 	$(".content-input").val("")
@@ -27,7 +24,6 @@ $(".submit-review").on("click", async () => {
 	$(".cleanliness-input").val("")
 	$(".lighting-input").val("")
 	await appManager.saveReview(newReview)
-
     await appManager.getReviewsFromDb()
     $(".success-message").append(
         `<p class="success-content">Your review has been added.</p>
@@ -38,7 +34,6 @@ $(".submit-review").on("click", async () => {
     }, 2500)
 })
 
-// Toggle bottom menu 
 $(function () {
     $(".add-review").click(function () {
         $("#map").toggle("fast")
