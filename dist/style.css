@@ -72,6 +72,17 @@ p {
 }
 
 #map-btn {
+  border:0;
+  background-color: #dbebb5;
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 300;
+  margin-left: 12px;
+  margin-top: 16px;
+  width: 8%;
+  text-emphasis: bold;
+  height: 32px;
+
 	background-color: #dbebb5;
 	font-family: Roboto;
 	font-size: 15px;
@@ -81,6 +92,7 @@ p {
 	width: 8%;
 	text-emphasis: bold;
 	height: 32px;
+
 }
 
 #map-btn:hover {
@@ -110,13 +122,29 @@ div {
 #search-reviews {
   height: 0px;
   padding: 0;
-  border: 0
+  border: 0;
+  margin: center;
+  
 }
+.submit-review{
+  border:0;
+  background-color: #dbebb5;
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 300;
+  margin-left: 12px;
+  margin-top: 16px;
+  width: 8%;
+  text-emphasis: bold;
+  height: 32px;
+}
+
 
 .reviews{
   position: relative;
   left: 100%;
 }
+
 .form {
   display: grid;
   width: 90vw;
@@ -124,11 +152,10 @@ div {
   border: 1px;
   grid-row-gap: 22px;
   grid-template-columns: repeat(2, 2fr);
-  grid-template-rows: 10% 90%;
+  grid-template-rows: 10% 200%;
   letter-spacing: 2px;
   font-size: 11px;
   padding-top: 15px;
-  height: 33%;
   border-radius: 4;
   background-color: #d2ea9b;
   text-align:left;
@@ -159,9 +186,12 @@ div {
   background: rgba(51, 51, 51, 0.7);
 }
 
+
+
 .ace596 {
 	color: #ace596;
 }
+
 
 .f8c959 {
 	color: #f8c959;
