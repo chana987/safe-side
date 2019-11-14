@@ -2,6 +2,11 @@ const reviewMarkers = []
 let newMarker
 let searchLocation
 let geocoder
+let mapOptions
+let map
+let infowindow 
+let marker
+
 
 function initialize() {
 	const mapOptions = {
@@ -127,6 +132,10 @@ function initialize() {
 		let address = document.getElementById("search-street-input").value
 		codeAddress(address)
 	})
+
 }
+
+
+
 
 google.maps.event.addDomListener(window, "load", initialize)
