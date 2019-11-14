@@ -22,6 +22,7 @@ header {
   grid-row-gap: 22px;
   grid-template-columns: 10% 90%;
   text-align: left;
+  padding: 15px;
 }
 
  h5 {
@@ -110,6 +111,7 @@ div{
   border-radius: 4;
   background-color: #d2ea9b;
   text-align:left;
+  padding: 20px;
 }
 
 .form--active{
