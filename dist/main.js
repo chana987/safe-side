@@ -4,7 +4,6 @@ const renderer = new Renderer()
 $("#search-reviews").on("click", async () => {
     await appManager.getReviewsFromDb()
     renderer.renderData(appManager.reviews)
-    console.log(appManager.reviews)
 })
 
 
