@@ -109,43 +109,4 @@ function initialize() {
 	})
 }
 
- //     function initMap() {
-//    map = new google.maps.Map(document.getElementById('map'), {
-//     zoom: 8,
-//     center: {lat: 40.731, lng: -73.997}
-//   });
-//    geocoder = new google.maps.Geocoder;
-//   infowindow = new google.maps.InfoWindow;
-
-//   document.getElementById('find-loc').addEventListener('click', function() {
-//     geocodeLatLng(geocoder, map, infowindow);
-//   });
-
-
-// function geocodeLatLng(geocoder, map, infowindow) {
-//   var latlngStr = input.split(',', 2);
-//   var latlng = {lat: parseFloat(latlngStr[0]), lng: parseFloat(latlngStr[1])};
-//   geocoder.geocode({'location': latlng}, function(results, status) {
-//       console.log(latlng)
-//     if (status === 'OK') {
-//       if (results[0]) {
-//         map.setZoom(15);
-//          marker = new google.maps.Marker({
-//           position: latlng,
-//           map: map
-//         });
-//         infowindow.setContent(results[0].formatted_address);
-//         infowindow.open(map, marker);
-//        // console.log(infowindow)
-//       } else {
-//         window.alert('No results found');
-//       }
-//     } else {
-//       window.alert('Geocoder failed due to: ' + status);
-//     }
-//   });
-// }
-
-
-
 google.maps.event.addDomListener(window, "load", initialize)
