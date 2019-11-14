@@ -137,6 +137,9 @@ div{
 .btn:hover {
 	background: rgba(51, 51, 51, 0.7);
 }
+.location-input{
+    
+}
 
 .controls {
 	margin-top: 16px;
