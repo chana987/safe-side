@@ -18,16 +18,17 @@ function initialize() {
 		overviewMapControl: true,
 		rotateControl: false
 	}
-	const map = new google.maps.Map(document.getElementById("map"), mapOptions)
-
-	// map.data.loadGeoJson('https://storage.cloud.google.com/tlv_son/streets.json')
 
 	const input = document.getElementById("search-street-input")
-	map.controls[google.maps.ControlPosition.TOP_LEFT].push(input)
-
 	const btn = document.getElementById("map-btn")
-	map.controls[google.maps.ControlPosition.TOP_LEFT].push(btn)
 
+	const loadMap = () => {
+        map = new google.maps.Map(document.getElementById("map"), mapOptions)
+        map.controls[google.maps.ControlPosition.TOP_LEFT].push(input)
+        map.controls[google.maps.ControlPosition.TOP_LEFT].push(btn)
+	}
+	loadMap()
+	
 	function placeMarker(location) {
 		if (newMarker == null) {
 			newMarker = new google.maps.Marker({
@@ -93,6 +94,9 @@ function initialize() {
 					map: map,
 					position: results[0].geometry.location
 				})
+				mapOptions.zoom = 16
+				loadMap()
+				makeReviewMarkers()
 			} else {
 				alert("Geocode was not successful for the following reason: " + status)
 			}
