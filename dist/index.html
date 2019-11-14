@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,95 +18,100 @@
 	<div id="map"></div>
 
 
-	<input type="text" class="controls" id="search-street-input" placeholder="Find location on map" value="Tel-Aviv, "/>
- 
+	<input type="text" class="controls" id="search-street-input" placeholder="Find location on map"
+		value="Tel-Aviv, " />
+
 	<button id='map-btn' class="search-street">Search</button>
-	<button id='find-loc'>Find</button>
-	<button id="search-reviews">display-review</button>
+
 	<div class="success-message"></div>
-		
-	<div class="reviews"></div>
+
+
 
 	<button class="add-review">
 		<ion-icon class='ion-icon' name="arrow-dropup"></ion-icon>
 	</button>
 
 	<div class="drop-menu">
-	<div class="form">
-			<p class="location-input">Mark the location of your review on map to begin</p>
-		<div class="review-input">
-			<div>
-				<label for="date-input" class="date-label">
-					<ion-icon class='ion-icon' ios="ios-calendar" md="md-calendar">
-					</ion-icon>
-				</label>
-				<input type="date" class="date-input in" placeholder="" required />
-			</div>
-			<div>
-				<label for="time-input" class="time-label">
-					<ion-icon class='ion-icon' name="time">
-					</ion-icon>
-				</label>
-				<input type="time" class="time-input in" placeholder="" required />
-			</div>
-			<div>
+		<div class="form">
+			<div class="review-input">
+				<p class="location-input">Mark the location of your review on map to begin</p>
+				<div>
+					<label for="date-input" class="date-label">
+						<ion-icon class='ion-icon' ios="ios-calendar" md="md-calendar">
+						</ion-icon>
+					</label>
+					<input type="date" class="date-input in" placeholder="" required />
+				</div>
+				<div>
+					<label for="time-input" class="time-label">
+						<ion-icon class='ion-icon' name="time">
+						</ion-icon>
+					</label>
+					<input type="time" class="time-input in" placeholder="" required />
+				</div>
+				<div>
 
-				<label for="people-input" class="people-label">
-					<ion-icon class='ion-icon' name="people">
-					</ion-icon>
-				</label>
-      				<span>Hardly any pedestrians</span>
-				<input type="radio" name="people-input radio" value="1">
-				<input type="radio" name="people-input radio" value="2">
-				<input type="radio" name="people-input radio" value="3">
-				<input type="radio" name="people-input radio" value="4">  
-				<input type="radio" name="people-input radio" value="5">
-				<span>Very crowded</span>
-			</div>
-			<div>
-				<label for="cleanliness-input" class="cleanliness-label">
-					<ion-icon class='ion-icon' name="trash">
-					</ion-icon>
-				</label>
-				<span>Streets are filthy</span>
-				<input type="radio" name="cleanliness-input radio" value="1">
-				<input type="radio" name="cleanliness-input radio" value="2">
-				<input type="radio" name="cleanliness-input radio" value="3">
-				<input type="radio" name="cleanliness-input radio" value="4">  
-				<input type="radio" name="cleanliness-input radio" value="5">
-				<span>Spotless and well kept</span>
-			</div>
-			<div>
-				<label for="lighting-input" class="lighting-label">
-					<ion-icon class='ion-icon' name="flashlight">
-					</ion-icon>
-				</label>
-        				<span>Dark and gloomy</span>
-				<input type="radio" name="lighting-input radio" value="1">
-				<input type="radio" name="lighting-input radio" value="2">
-				<input type="radio" name="lighting-input radio" value="3">
-				<input type="radio" name="lighting-input radio" value="4">  
-				<input type="radio" name="lighting-input radio" value="5">
-				<span>Brightly lit</span>		
+					<label for="people-input" class="people-label">
+						<ion-icon class='ion-icon' name="people">
+						</ion-icon>
+					</label>
+					<span>Hardly any pedestrians</span>
+					<input type="radio" name="people-input radio" value="1">
+					<input type="radio" name="people-input radio" value="2">
+					<input type="radio" name="people-input radio" value="3">
+					<input type="radio" name="people-input radio" value="4">
+					<input type="radio" name="people-input radio" value="5">
+					<span>Very crowded</span>
+				</div>
+				<div>
+					<label for="cleanliness-input" class="cleanliness-label">
+						<ion-icon class='ion-icon' name="trash">
+						</ion-icon>
+					</label>
+					<span>Streets are filthy</span>
+					<input type="radio" name="cleanliness-input radio" value="1">
+					<input type="radio" name="cleanliness-input radio" value="2">
+					<input type="radio" name="cleanliness-input radio" value="3">
+					<input type="radio" name="cleanliness-input radio" value="4">
+					<input type="radio" name="cleanliness-input radio" value="5">
+					<span>Spotless and well kept</span>
+				</div>
+				<div>
+					<label for="lighting-input" class="lighting-label">
+						<ion-icon class='ion-icon' name="flashlight">
+						</ion-icon>
+					</label>
+					<span>Dark and gloomy</span>
+					<input type="radio" name="lighting-input radio" value="1">
+					<input type="radio" name="lighting-input radio" value="2">
+					<input type="radio" name="lighting-input radio" value="3">
+					<input type="radio" name="lighting-input radio" value="4">
+					<input type="radio" name="lighting-input radio" value="5">
+					<span>Brightly lit</span>
 
+				</div>
+				<div>
+					<label for="content-input" class="content-label">
+						<ion-icon class='ion-icon' name="clipboard">
+						</ion-icon>
+					</label>
+					<input type="text" class="content-input in" placeholder="" />
+				</div>
+				<button class="submit-review">Submit</button>
 			</div>
-			<div>
-				<label for="content-input" class="content-label">
-					<ion-icon class='ion-icon' name="clipboard">
-					</ion-icon>
-				</label>
-				<input type="text" class="content-input in" placeholder="" />
-			</div>
-			<button class="submit-review">Submit</button>
+			<div class="reviews">
+				<button id="search-reviews">
+					<ion-icon class='ion-icon' name="list"></ion-icon>
+				</button></div>
 		</div>
 	</div>
-</div>
+
 
 	<script id="review-template" type="text/x-handlebars-template">
 	{{#each review}}
 	<div class="review-container">
 		<div class="time">Time: {{time}}</div>
-		<div class="location">Location: {{location}}</div>
+		<div class="location"><ion-icon class='ion-icon' name="pin"></ion-icon> {{location}}</div>
 		<div class="content">Content: {{content}}</div>
 		<div class="people">People rate: {{people}}</div>
 		<div class="cleanliness">Dirt rate: {{dirty}}</div>
