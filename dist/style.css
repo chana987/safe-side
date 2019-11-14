@@ -72,20 +72,20 @@ p {
 }
 
 #map-btn {
-  background-color: #dbebb5;
-  font-family: Roboto;
-  font-size: 15px;
-  font-weight: 300;
-  margin-left: 12px;
-  margin-top: 16px;
-  width: 8%;
-  text-emphasis: bold;
-  height: 32px;
+	background-color: #dbebb5;
+	font-family: Roboto;
+	font-size: 15px;
+	font-weight: 300;
+	margin-left: 12px;
+	margin-top: 16px;
+	width: 8%;
+	text-emphasis: bold;
+	height: 32px;
 }
 
 #map-btn:hover {
-  background-color: #dbebb5;
-  color: #829458;
+	background-color: #dbebb5;
+	color: #829458;
 }
 
 div {
@@ -138,7 +138,7 @@ div {
 }
 
 .ion-icon {
-  font-size: 50px;
+	font-size: 50px;
 }
 
 .btn {
@@ -160,6 +160,25 @@ div {
     
 }
 
+.ace596 {
+	color: #ace596;
+}
+
+.f8c959 {
+	color: #f8c959;
+}
+
+.f96931 {
+	color: #f96931;
+}
+
+.e03f00 {
+	color: #e03f00;
+}
+
+.a10803 {
+	color: #a10803;
+}
 .controls {
   margin-top: 16px;
   border: 1px solid transparent;
