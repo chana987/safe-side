@@ -106,12 +106,18 @@
 	<script id="review-template" type="text/x-handlebars-template">
 	{{#each review}}
 	<div class="review-container">
-		<div class="time">Time: {{time}}</div>
-		<div class="location">Location: {{location}}</div>
-		<div class="content">Content: {{content}}</div>
-		<div class="people">People rate: {{people}}</div>
-		<div class="cleanliness">Dirt rate: {{dirty}}</div>
-		<div class="lighting">Lighting: {{lighting}}</div>
+		<div class="time"><ion-icon class='ion-icon' name="time">
+			</ion-icon> {{time}}</div>
+		<div class="location">Location: {{street}}</div>
+		<div class="people"><ion-icon class='ion-icon' name="people">
+			</ion-icon> {{people}}</div>
+		<div class="cleanliness"><ion-icon class='ion-icon' name="trash">
+			</ion-icon> {{dirty}}</div>
+		<div class="lighting"><ion-icon class='ion-icon' name="flashlight">
+			</ion-icon> {{lighting}}</div>
+		<div class="content"><ion-icon class='ion-icon' name="clipboard">
+			</ion-icon> {{content}}</div>
+		<hr>
 	</div>
 	{{/each}}
 	</script>

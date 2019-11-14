@@ -10,8 +10,9 @@ class AppManager {
 	}
 
 	async getReviewsFromDb() {
-		const review = await $.get("/reviews")
-		this.reviews = review
+        const reviews = await $.get("/reviews")
+        reviews.forEach(r => r.time = moment(r.time).format('HH:mm'))
+		this.reviews = reviews
 	}
 
 	async saveReview(review) {
