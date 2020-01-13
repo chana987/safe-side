@@ -114,10 +114,10 @@ function initialize() {
 
 	function loadSearchLocation() {
 		map.setCenter(searchLocation)
-			const searchMarker = new google.maps.Marker({
-				map: map,
-				position: searchLocation
-			})
+		const searchMarker = new google.maps.Marker({
+			map: map,
+			position: searchLocation
+		})
 	}
 
 	function codeAddress(address) {
@@ -140,8 +140,5 @@ function initialize() {
 	})
 
 }
-
-
-
 
 google.maps.event.addDomListener(window, "load", initialize)
